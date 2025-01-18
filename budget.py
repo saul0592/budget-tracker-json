@@ -7,6 +7,7 @@ EXPENSES_FILE = "expenses.json"
 
 
 
+
 def get_amount():
     name = expense_name.get()
     try:
@@ -39,6 +40,9 @@ def get_amount():
 
     # Update the listbox with the new expenses
     update_expenses_list()
+
+    #uptade the total label
+    update_total_label()
 
 ### LISTBOX
 
@@ -82,19 +86,37 @@ def message_box_yesno():
     result =messagebox.askyesnocancel("Confirm delete", "Are you sure you want to delete this item?")
     return result
 
-   
-
+def sum_expenses():
+    expenses = load_expenses()
+    total_food = 0
+    total_entertainment = 0
+    total_clothes = 0
+    total_other = 0
+    for expense in expenses:
+        if expense["category"] == 'food':
+            total_food += expense['amount']
+        elif expense["category"] == 'entertainment':
+            total_entertainment += expense['amount']
+        elif expense["category"] == 'clothes':
+            total_clothes += expense['amount']
+        elif expense["category"] == 'anything else':
+            total_other+= expense['amount']
+    return total_food, total_entertainment, total_clothes, total_other
 
 def accion_click(event):
     print(f"Clic en la posición ({event.x}, {event.y})")
+
+def update_total_label():
+    total_expenses = sum_expenses()
+    total_label.config(text=f'Total food: ${total_expenses[0]} Total entertainment: ${total_expenses[1]} Total clothes: ${total_expenses[2]} Total other: ${total_expenses[3]}')
 
 
 def create_window():
     window = tk.Tk()
     window.title("Budget Tracker")
-    window.geometry("400x300")  
+    window.geometry("500x400")  
 
-    global category_menu, expense_amount, expense_name, category_values_option
+    global category_menu, expense_amount, expense_name, category_values_option, total_label
     ## label to get category
     tk.Label(window, text='Name: ' ).grid(row=0, column=0)
     expense_name = tk.Entry(window)
@@ -111,7 +133,11 @@ def create_window():
     category_values_option= tk.StringVar(window)
     category_values_option.set(category_values[0])
     category_menu = tk.OptionMenu(window, category_values_option, *category_values).grid(row=2,column=1)
-
+    
+    total_expenses = sum_expenses()
+    total_label = tk.Label(window, text=f'Total food: ${total_expenses[0]} Total entertainment: ${total_expenses[1]} Total clothes: ${total_expenses[2]} Total other: ${total_expenses[3]}')
+    total_label.grid(row=5, column=0, columnspan=2)
+    
     
     add_button = tk.Button(window, text="Submit expense", command=get_amount)
     add_button.grid(row=3, columnspan=2)
@@ -121,7 +147,7 @@ def create_window():
     global expense_listbox
 
     ##CLICK BUTTON
-    window.bind("<Button-1>", accion_click)
+    #window.bind("<Button-1>", accion_click)
     
 
     

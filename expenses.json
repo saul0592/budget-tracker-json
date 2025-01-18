@@ -5,6 +5,56 @@
         "category": "food"
     },
     {
+        "name": "pichint",
+        "amount": 23.0,
+        "category": "clothes"
+    },
+    {
+        "name": "diego",
+        "amount": 500.0,
+        "category": "anything else"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "entertainment"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "entertainment"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "clothes"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "food"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "food"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "food"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "food"
+    },
+    {
+        "name": "saul",
+        "amount": 12.0,
+        "category": "food"
+    },
+    {
         "name": "saul",
         "amount": 12.0,
         "category": "food"
