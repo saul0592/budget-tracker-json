@@ -1,10 +1,14 @@
 # Budget Tracker with JSON
 
-Este es un rastreador de presupuesto que permite a los usuarios registrar sus gastos e ingresos, almacenarlos en formato JSON y visualizarlos mediante gráficos de pastel utilizando Tkinter y Matplotlib.
-## Dependencias
+This is a budget tracker that allows users to record their expenses and income, store them in JSON format, and visualize them using pie charts with Tkinter and Matplotlib.
+## Dependencies
 
-Este proyecto utiliza las siguientes librerías:
-- `tkinter` para la interfaz gráfica de usuario.
-- `pandas` para manejar los datos de los gastos e ingresos.
-- `matplotlib` para generar los gráficos de pastel.
-- `json` para almacenar los datos en un archivo JSON.
+This project uses the following libraries:
+
+-tkinter for the graphical user interface.
+
+-pandas for handling expense and income data.
+
+-matplotlib for generating pie charts.
+
+-json for storing data in a JSON file.
